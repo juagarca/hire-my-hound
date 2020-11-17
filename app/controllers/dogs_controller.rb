@@ -12,5 +12,6 @@ before_action :set_dog, only: [:show]
 
   def index
     @dogs = Dog.all
+    @search = params["postcode"]
   end
 end
