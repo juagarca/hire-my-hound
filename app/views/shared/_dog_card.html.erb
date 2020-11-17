@@ -1,0 +1,7 @@
+<% current_user.dogs.each do |dog|%>
+  <div class="dog">
+    <%= dog.name %>
+    <%= dog.breed %>
+    <%= dog.age %>
+  </div>
+<% end %>
