@@ -1,9 +1,10 @@
 <div class="container">
+  <div class="search-bar">
+
+  </div>
   <div class="cards">
-    <div class="card">
       <% @dogs.each do |dog| %>
-        <h2>dog.name</h2>
+        <%= render "shared/card_show", dog: dog %>
       <% end %>
-    </div>
   </div>
 </div>
