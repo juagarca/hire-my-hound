@@ -3,12 +3,14 @@
   background: white;
 
 }
-.nav-link {
-  color: $blue !important;
+
+
+.navbar-light .navbar-nav .nav-link {
+  color: $gray;
 }
 
 .dropdown-item {
-  color: $blue;
+  color: $gray;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,4 +19,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 100px;
+}
+
+#navbarSupportedContent > ul > li > a {
+  color: $gray;
+}
+
+#navbarSupportedContent a:hover {
+  color: $blue;
 }
