@@ -8,17 +8,17 @@
       </div>
       <div class="dog-show-text">
         <h2 class="text-center m-3">More info</h2>
-        <h5>About</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, dolores. Officiis atque accusantium illo, quo labore ut eius natus magnam!</p>
+       
+         <% if @dog.bio %>
+           <h5>About</h5>
+           <p><%= @dog.bio %></p>
+          <% end %>
+        
         <h5>Owner</h5>
         <p><%= @dog.user.email %></p>
         <h5>Insurance</h5>
-        <p><%= @dog.insurance ? "Yes" : "No" %></p>
+        <p><%= @dog.insurance ? "Yes" : "No" %></p>            
       </div>
-    </div>  
-    
-        
-    
-    
+    </div>    
   </div>
 </div>
