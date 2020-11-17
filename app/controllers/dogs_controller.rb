@@ -10,4 +10,7 @@ before_action :set_dog, only: [:show]
     @dog = Dog.find(params[:id])
   end
 
+  def index
+    @dogs = Dog.all
+  end
 end
