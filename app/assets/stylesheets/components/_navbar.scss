@@ -1,6 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+
+}
+.nav-link {
+  color: $blue !important;
+}
+
+.dropdown-item {
+  color: $blue;
 }
 
 .navbar-lewagon .navbar-collapse {
