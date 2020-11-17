@@ -1,0 +1,18 @@
+.dog-show-box {
+  display: flex;
+  border: 2px solid $blue;
+  border-radius: 10px;
+}
+
+.dog-show-box .dog-show-text {
+  padding: 20px;
+}
+
+.dog-show-box .dog-show-image {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.dog-show-box h5 {
+  font-weight: bold;
+}
