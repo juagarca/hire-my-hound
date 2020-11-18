@@ -15,7 +15,7 @@ puts "Creating users and saving them"
 users = []
 10.times do
   e = [*('a'..'z')].sample(4).join+"@email.com"
-  user = User.new(email: e, password: "123456")
+  user = User.new(email: e, password: "123456", address: "London")
   user.save!
   users << user
 end
