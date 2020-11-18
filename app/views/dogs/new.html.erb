@@ -1,7 +1,17 @@
-<%= simple_form_for [ current_user, @dog ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :breed %>
-  <%= f.input :age %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Add dog", class: "btn" %>
-<% end %>
+
+<div class="container" style="height:80vh;">
+  <div class="login" style="width:300px;">
+    <h2>Your new dog</h2>
+    <%= simple_form_for([current_user, @dog]) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :breed %>
+      <%= f.input :age %>
+      <%= f.input :photo, as: :file %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Submit dog", class: "btn" %>
+    </div>
+  <% end %>
+  </div>
+</div>
