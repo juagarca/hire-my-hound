@@ -1,0 +1,7 @@
+<%= simple_form_for [ @dog, @booking ] do |f| %>
+  <%= f.input :start %>
+  <%= f.input :end %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.submit "Hire this hound", class: "btn btn-danger" %>
+<% end %>

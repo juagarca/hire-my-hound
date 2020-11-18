@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show, :index, :edit] do
     resources :dogs, only: [:new, :create, :edit, :update, :delete]
-    resources :bookings, only: [ :index, :new, :create]
   end
 
-  resources :dogs, only: [:show, :index]
-  resources :bookings, only: [:show, :edit, :update, :destroy]
+  resources :dogs, only: [:show, :index] do
+    resource :bookings, only: [:show, :new, :create]
+  end
+
+
+  resources :bookings, only: [:destroy]
 end
