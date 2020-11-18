@@ -9,13 +9,15 @@ class DogsController < ApplicationController
     @dogs.each do |dog|
       users << dog.user
     end
+    users = users.reject { |user| user.latitude == nil || user.longitude == nil }
 
-    # @markers = users.geocoded.map do |user|
-    #   {
-    #     lat: user.latitude,
-    #     lng: user.longitude
-    #   }
-    # end
+    @markers = users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        image_url: helpers.asset_url('marker.png')
+      }
+    end
   end
 
   def new

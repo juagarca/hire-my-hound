@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show, :index, :edit, :update] do
     resources :dogs, only: [:new, :create, :edit, :update, :delete]
+    resources :bookings, only: [:index]
   end
 
   resources :dogs, only: [:show, :index] do
