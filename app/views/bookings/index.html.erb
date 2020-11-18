@@ -1,8 +1,10 @@
-<div class="container">
-  <h3>My bookings:</h3>
-  <ul>
-  <% @bookings.each do |booking| %>
-    <li><%= "Booking with #{booking.dog.name} from #{booking[:start]} until #{booking[:end]}. Location: #{booking[:location]}" %></li>
-  <% end %>
-</ul>
+<div class="bookings-container">
+    <h3>My bookings:</h3>
+    <div class="bookings">
+      <ul>
+      <% @bookings.each do |booking| %>
+        <li><%= "You have a booking with #{booking.dog.name} from #{booking[:start]} until #{booking[:end]}. Location: #{booking[:location]}" %></li>
+      <% end %>
+      </ul>
+    </div>
 </div>
