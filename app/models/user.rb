@@ -6,6 +6,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :dogs
+  has_many :bookings
   validates :bio, length: { maximum: 500 }
   validates :first_name, :last_name, length: { maximum: 20 }
 end

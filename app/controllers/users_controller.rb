@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @bookings = current_user.bookings
   end
 
   def edit
@@ -29,5 +30,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :address, :bio, :email, :password)
   end
-  
 end
