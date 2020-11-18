@@ -9,12 +9,7 @@
     <% end %>
   </div>
   <div class="profile_actions">
-    <h3>My bookings:</h3>
-    <ul>
-      <% @bookings.each do |booking| %>
-        <%= "Booking with #{booking.dog.name} from #{booking[:start]} until #{booking[:end]}. Location: #{booking[:location]}" %>
-      <% end %>
-    </ul>
+    <%= link_to "My bookings", user_bookings_path(current_user) %>
     <%= render "shared/profile_actions" %>
   </div>
 </div>
