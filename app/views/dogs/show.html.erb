@@ -4,9 +4,9 @@
     <div class="dog-show-box">
 
       <div class="dog-show-image">
-      <% if @dog.photo.attached? %>
-        <%= cl_image_tag @dog.photo.key, height: 400, width: 600, crop: :fill %>
-      <% end %>
+        <% if @dog.photo.attached? %>
+          <%= cl_image_tag @dog.photo.key, height: 400, width: 600, crop: :fill %>
+        <% end %>
       </div>
       <div class="dog-show-text">
         <h2 class="text-center m-3">More info</h2>
