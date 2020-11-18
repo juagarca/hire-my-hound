@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :dogs
+  validates :bio, length: { maximum: 500 }
+  validates :first_name, :last_name, length: { maximum: 20 }
 end
