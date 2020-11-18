@@ -2,18 +2,18 @@
   background: #EFEFEF;
   padding-left: 20px;
   overflow: hidden;
-  height: 120px;
+  height: 250px;
 
   display: flex;
   align-items: center;
 }
 
-.card-product img {
-  border-radius: 50%;
-  height: 50%;
-  width: 60px;
-  object-fit: cover;
-}
+// .card-product img {
+//   border-radius: 50%;
+//   height: 50%;
+//   width: 60px;
+//   object-fit: cover;
+// }
 
 .card-product h2 {
   font-size: 16px;

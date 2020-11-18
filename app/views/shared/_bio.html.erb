@@ -1,5 +1,7 @@
 <div class="card-product">
-  <img src="https://picsum.photos/seed/picsum/200/300" />
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "large-avatar" %>
+  <% end %>
   <div class="card-product-infos">
     <div class="username">
       <%= @user.email %>
