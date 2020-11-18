@@ -1,29 +1,14 @@
 <%= render "shared/bio" %>
+
 <div class="card_actions">
-  <div class="dog_card">
-    <%= render "shared/dog_card" %>
+    <div class="cards profile-cards">
+    <% @user.dogs.each do |dog| %>
+      <%= link_to dog_path(dog.id) do %>
+        <%= render "shared/card_show", dog: dog %>
+      <% end %>
+    <% end %>
   </div>
   <div class="profile_actions">
     <%= render "shared/profile_actions" %>
   </div>
 </div>
-
-
-
-<!-- h2 with user's name
-p with user's full bio slightly to the right
-
-
-bio
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div>
- -->
