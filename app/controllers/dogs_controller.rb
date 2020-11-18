@@ -1,14 +1,14 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show]
-  
+
   def index
     @dogs = Dog.all
   end
-  
+
   def new
     @dog = Dog.new
   end
-  
+
   def show
   end
 
