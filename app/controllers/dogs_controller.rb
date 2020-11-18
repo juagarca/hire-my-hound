@@ -1,8 +1,16 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @dogs = Dog.all
+
+    # @markers = @dogs.geocoded.map do |dog|
+    #   {
+    #     lat: dog.latitude,
+    #     lng: dog.longitude
+    #   }
+    # end
   end
 
   def new
