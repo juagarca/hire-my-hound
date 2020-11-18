@@ -8,9 +8,5 @@
       <p><%= dog.breed %></p>
     </div>
     <h2 class="card-age"><%= dog.age %> years old</h2>
-    <!-- <img src="https://source.unsplash.com/random" class="card-user avatar" /> -->
-    <% if dog.user.photo.attached? %>
-        <%= cl_image_tag dog.user.photo.key, height: 400, width: 600, crop: :fill, class: "card-user avatar" %>
-    <% end %>
   </div>
 </div>

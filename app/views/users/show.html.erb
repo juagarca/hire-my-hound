@@ -4,7 +4,7 @@
     <div class="cards profile-cards">
     <% @user.dogs.each do |dog| %>
       <%= link_to dog_path(dog.id) do %>
-        <%= render "shared/card_show", dog: dog %>
+        <%= render "shared/card_show_profile", dog: dog %>
       <% end %>
     <% end %>
   </div>

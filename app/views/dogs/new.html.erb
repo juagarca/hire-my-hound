@@ -2,5 +2,6 @@
   <%= f.input :name %>
   <%= f.input :breed %>
   <%= f.input :age %>
-  <%= f.submit "Submit dog", class: "btn btn-danger" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Add dog", class: "btn btn-danger" %>
 <% end %>
