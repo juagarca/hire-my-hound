@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @bookings_other_dogs = current_user.bookings.where(user_id: current_user.id)
-    @bookings_my_dogs = current_user.bookings.where(user_id: !current_user.id)
+    @bookings_my_dogs = Booking.all.where("user_id != ?", current_user.id)
   end
 
   def edit

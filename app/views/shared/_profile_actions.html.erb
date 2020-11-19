@@ -10,7 +10,7 @@
 <hr>
 <h5 class="mb-3 text-center">Borrowing other dogs:</h5>
 <% if @bookings_other_dogs.empty? %>
-  <p>None at the moment</p>
+  <p class="text-center">None at the moment</p>
 <% end %>
 <% @bookings_other_dogs.each do |booking| %>
   <%= render 'shared/user_show_booking_cards', booking: booking %>
