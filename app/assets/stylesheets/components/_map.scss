@@ -1,0 +1,23 @@
+.mapboxgl-popup {
+  max-width: 300px;
+}
+
+.mapboxgl-popup-content {
+  // text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.info-card-image {
+  border-radius: 10%;
+  border: 1px solid $blue;
+}
+
+.info {
+  font-weight: bolder;
+}
+
+.card-dogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}

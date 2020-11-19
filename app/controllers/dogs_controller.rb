@@ -3,19 +3,33 @@ class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @dogs = Dog.all
-
+    @dogs = []
+    # Finding users with dogs
     users = []
     @dogs.each do |dog|
       users << dog.user
     end
-    users = users.reject { |user| user.latitude == nil || user.longitude == nil }
 
-    @markers = users.map do |user|
+    # Finding users within 10 miles
+    if params[:query].present?
+      # @dogs = Dog.joins(:user).where(users: { address: params[:query] })
+      users = User.near(params[:query], 10)
+      # Adding their dogs to @dogs
+      users.each do |user|
+        user.dogs.each { |dog| @dogs << dog }
+      end
+    else
+      # if not search then showing all dogs
+      @dogs = Dog.all
+    end
+
+    users = users.reject { |user| user.latitude.nil? || user.longitude.nil? }
+
+    @markers = users.map do |u|
       {
-        lat: user.latitude,
-        lng: user.longitude,
-        image_url: helpers.asset_url('marker.png')
+        lat: u.latitude,
+        lng: u.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: u })
       }
     end
   end
