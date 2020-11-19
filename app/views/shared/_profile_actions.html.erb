@@ -9,15 +9,27 @@
   <%= cl_image_tag(booking.dog.photo.key, class: "avatar")  %>
 <% end %>
 <hr>
-
 <h5 class="mb-3">Borrowing other dogs:</h5>
 <% if @bookings_other_dogs.empty? %>
   <p>None at the moment</p>
 <% end %>
 <% @bookings_other_dogs.each do |booking| %>
-  <%= booking.dog.name %>
-  <%= cl_image_tag(booking.dog.photo.key, class: "avatar")  %>
-<% end %>
+  <div class="card p-3">
+  <p>Booking with <strong><%= booking.dog.name %></strong>
+   <%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %>
+  <p>
+  <%= booking.start.strftime("%H:%M %d/%m/%y") %> to <%= booking.end.strftime("%H:%M %d/%m/%y") %></p>  
+  </p>
+ 
+  <p class="mt-3">Confirmed?
+  <% if booking.confirmation %>
+    <%= icon('far fa-thumbs-up') %>
+  <% else %>
+    <%= icon('far fa-thumbs-down', '', class: 'ml-3') %>
+  <% end %>
+  </p>
+    </div>
+ <% end %>
 
 <%= link_to "My bookings", user_bookings_path(current_user) %>
 
