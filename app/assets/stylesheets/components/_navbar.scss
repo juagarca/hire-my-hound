@@ -5,7 +5,9 @@
   top: 0;
   width: 100%;
 }
-
+.navbar-gray {
+  background: $light-gray;
+}
 
 .navbar-light .navbar-nav .nav-link {
   color: $gray;
