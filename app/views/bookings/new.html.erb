@@ -1,7 +1,13 @@
-<%= simple_form_for [ @dog, @booking ] do |f| %>
-  <%= f.input :start %>
-  <%= f.input :end %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.submit "Hire this hound", class: "btn btn-danger" %>
-<% end %>
+<div class="dog-booking-form">
+  <%= simple_form_for([@dog, @booking], remote: true) do |f| %>
+    <div class="dog-booking-time">
+      <%= f.input :start %>
+      <%= f.input :end %>
+    </div>
+    <div class="dog-booking-info">
+      <%= f.input :location %>
+      <!-- TODO: implement a self calculating price -->
+    </div>
+    <%= f.submit "Hire this hound", class: "btn" %>
+  <% end %>
+</div>
