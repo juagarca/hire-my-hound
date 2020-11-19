@@ -1,0 +1,19 @@
+<%= link_to user_path(user) do %>
+  <div class="info-card">
+    <div class="info-card-image">
+      <% if user.photo.attached? %>
+        <%= cl_image_tag user.photo.key, height: 50, width: 50, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="info">
+      <span> <%= user.first_name %> </span>
+      <div class="card-dogs">
+        <% user.dogs.each do |dog| %>
+          <% if dog.photo.attached? %>
+            <%= cl_image_tag dog.photo.key, height: 50, width: 50, crop: :fill, class: "small-avatar" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
