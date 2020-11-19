@@ -1,0 +1,23 @@
+<div class="card p-3 mx-auto">
+  <p class="text-center">Booking with <strong><%= booking.dog.name %></strong>
+   <%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %>
+  <p class="text-center">
+    <%= booking.start.strftime("%H:%M %d/%m/%y") %> to <%= booking.end.strftime("%H:%M %d/%m/%y") %></p>  
+  </p>
+  <% if booking.user_id != current_user.id %>
+    <% if !booking.confirmation %>
+      <p class="mt-3 text-center">Click to confirm this booking</p>
+    <% else %>
+      <p class="mt-3 text-center">Click to withdraw confirmation</p>
+    <% end %>
+  <% else %>
+  <p class="mt-3 text-center">Confirmed?
+    <% if booking.confirmation %>
+      <%= icon('far fa-thumbs-up') %>
+    <% else %>
+      <%= icon('far fa-thumbs-down', '', class: 'ml-3') %>
+    <% end %>
+  <% end %>
+  
+  </p>
+    </div>
