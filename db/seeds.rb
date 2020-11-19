@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Deleting users and dogs"
+Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
 
