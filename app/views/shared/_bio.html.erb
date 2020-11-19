@@ -4,16 +4,16 @@
   <% end %>
   <div class="card-product-infos">
     <div class="username">
-      <%= @user.email %>
+      <%= @user.alias_name %>
     </div>
     <div class="bio">
-      <p><%= "Hello! I am" %>
-      <%= @user.email %> <br>
-      <%= "These are my dogs." %>
-      <%= "They love being taken on walks" %>
-      </p>
+      <p> <%= @user.about_me %> </p>
+    </div>
+    <div class="address">
+      <p> <%=@user.address %> </p>
+    </div>
+    <div class="edit">
+      <%= link_to "Edit my profile", edit_user_registration_path %>
     </div>
   </div>
 </div>
-
-

@@ -1,7 +1,36 @@
-<%= simple_form_for [ @dog, @booking ] do |f| %>
-  <%= f.input :start %>
-  <%= f.input :end %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.submit "Hire this hound", class: "btn btn-danger" %>
-<% end %>
+<br>
+<br>
+<br>
+<div data-controller="price" data-price-rate="<%= @dog.hourly_rate %>" class="dog-booking-form">
+  <%= simple_form_for([@dog, @booking], remote: true) do |f| %>
+    <div class="dog-booking-time">
+      <%= f.input :start, as: :datetime, html5: true, input_html: {"data-action": "change->price#update", "data-target": "price.startDate"}%>
+      <%= f.input :end, as: :datetime, html5: true, input_html: {"data-action": "change->price#update", "data-target": "price.endDate"}%>
+      <%= f.input :price, as: :hidden, input_html: {"data-target": "price.priceField"}  %>
+    </div>
+    <div class="dog-booking-info">
+      <%= f.input :location %>
+    </div>
+    <div>
+      <div class="booking-price-calculator">
+        <p>Your booking price:</p>
+        <h3 data-target="price.calculatedPrice"></h3>
+      </div>
+    </div>
+    <%= f.submit "Hire this hound", class: "btn" %>
+  <% end %>
+</div>
+
+
+<!-- TODO on change calculate price * -->
+
+<!-- * fetch the hourly rate in the stimulus controller -->
+<!-- fetch the start date -->
+<!-- fetch the end date -->
+<!-- parse date strings to date objects -->
+<!-- calculate the # of hours between two dates -->
+<!-- * hourly rate -->
+
+<!-- Then display it to the user -->
+<!-- Then update the input price in the form -->
+
