@@ -5,9 +5,11 @@
     overflow: hidden;
     background: lightgrey;
     width: 250px;
+    height: 270px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 10px;
     border: 1px solid $blue;
+    margin-top: 10px;
 }
 
 .add-dog-card-button {
