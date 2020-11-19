@@ -1,0 +1,27 @@
+.add-dog-card {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+    background: lightgrey;
+    width: 250px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    border: 1px solid $blue;
+}
+
+.add-dog-card-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: darkgrey;
+  color: white;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  font-size: 45px;
+}
+
+.add-dog-card-button:hover {
+  transform: scale(1.1);
+}
