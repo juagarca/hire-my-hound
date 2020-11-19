@@ -1,12 +1,23 @@
-<h3>Profile Actions</h3>
-<ul>
-  <li>
-    <%= link_to "Add a new dog", new_user_dog_path(current_user) %>
-  </li>
-  <li>
-    <%= link_to "Edit your profile", edit_user_path(current_user) %>
-  </li>
-  <li>
-    <%= link_to "Do something else here", "#"%>
-  </li>
-</ul>
+<h3 class="text-center">My Bookings</h3>
+<br>
+<h5 class="mb-3">Gigs for your dogs:</h5>
+<% if @bookings_my_dogs.empty? %>
+  <p>None at the moment</p>
+<% end %>
+<% @bookings_my_dogs.each do |booking| %>
+  <%= booking.dog.name %>
+  <%= cl_image_tag(booking.dog.photo.key, class: "avatar")  %>
+<% end %>
+<hr>
+
+<h5 class="mb-3">Borrowing other dogs:</h5>
+<% if @bookings_other_dogs.empty? %>
+  <p>None at the moment</p>
+<% end %>
+<% @bookings_other_dogs.each do |booking| %>
+  <%= booking.dog.name %>
+  <%= cl_image_tag(booking.dog.photo.key, class: "avatar")  %>
+<% end %>
+
+<%= link_to "My bookings", user_bookings_path(current_user) %>
+
