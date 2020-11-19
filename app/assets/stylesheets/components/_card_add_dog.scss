@@ -1,0 +1,53 @@
+.add-dog-card {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+    background: lightgrey;
+    width: 250px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    border: 1px solid $blue;
+}
+
+.add-dog-card-button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: darkgrey;
+  display: flex;
+  align-items: center; 
+  justify-content: center;  
+}
+
+.add-dog-card-button:hover {
+  transform: scale(1.1);
+}
+
+.add-dog-card-button-text {
+  font-size: 45px;
+  color: white;
+}
+
+.add-dog-card-button-text:hover {
+  font-size: 45px;
+  color: white;
+}
+
+.cards-user-show {
+  display: flex;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
+  // margin: 30px 0;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.cards-and-actions {
+  display: flex;
+  width: 100%;
+}
+
+.user-profile-dog {
+  margin: 10px;
+}

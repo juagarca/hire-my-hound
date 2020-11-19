@@ -1,3 +1,6 @@
+<br>
+<br>
+<br>
 <div class="container">
   <h1 class="mt-3 text-center">All about <%= @dog.name %></h1>
   <h5 class="m-5 text-center">Meet <%= @dog.name %>, a <%= @dog.age %> year old <%= @dog.breed %>.</h5>
@@ -15,9 +18,10 @@
            <h5>About</h5>
            <p><%= @dog.bio %></p>
           <% end %>
-
-        <h5>Owner</h5>
-        <p><%= @dog.user.email %></p>
+        <% if @dog.user.first_name %>
+          <h5>Owner</h5>
+          <p><%= @dog.user.first_name %> <%= @dog.user.last_name %>  </p>
+        <% end %>
         <h5>Insurance</h5>
         <p><%= @dog.insurance ? "Yes" : "No" %></p>
         <%= link_to "Book this dog!", new_dog_bookings_path(@dog) %>

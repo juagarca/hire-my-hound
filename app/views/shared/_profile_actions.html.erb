@@ -1,12 +1,17 @@
-<h3>Profile Actions</h3>
-<ul>
-  <li>
-    <%= link_to "Add a new dog", new_user_dog_path(current_user) %>
-  </li>
-  <li>
-    <%= link_to "Edit your profile", edit_user_path(current_user) %>
-  </li>
-  <li>
-    <%= link_to "Do something else here", "#"%>
-  </li>
-</ul>
+<h3 class="text-center mb-3">My Bookings</h3>
+<hr>
+<h5 class="mb-3 text-center">Gigs for your dogs:</h5>
+<% if @bookings_my_dogs.empty? %>
+  <p class="text-center">None at the moment</p>
+<% end %>
+<% @bookings_my_dogs.each do |booking| %>
+    <%= render 'shared/user_show_booking_cards', booking: booking %>
+<% end %>
+<hr>
+<h5 class="mb-3 text-center">Borrowing other dogs:</h5>
+<% if @bookings_other_dogs.empty? %>
+  <p class="text-center">None at the moment</p>
+<% end %>
+<% @bookings_other_dogs.each do |booking| %>
+  <%= render 'shared/user_show_booking_cards', booking: booking %>
+<% end %>
