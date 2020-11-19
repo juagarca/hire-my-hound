@@ -1,10 +1,15 @@
 .card-product {
+  border-radius: 4px;
+  position: relative;
+  margin: 30px auto;
   background: #EFEFEF;
   padding-left: 20px;
   overflow: hidden;
-  height: 250px;
-
+  width: 800px;
+  height: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -29,7 +34,12 @@
 }
 
 .edit {
-  margin-left: 70%;
+  position: absolute;
+  bottom: 26px;
+  right: 28px;
+  width: 200px;
+  text-align: center;
+  justify-content: right;
   color: #85C5DE;
   border: 1px solid;
   padding: 8px 24px;

@@ -1,8 +1,10 @@
 <div class="card p-3 mx-auto">
   <p class="text-center">Booking with <strong><%= booking.dog.name %></strong>
-   <%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %>
+    <% if booking.dog.photo.attached? %>
+      <%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %>
+    <% end %>
   <p class="text-center">
-    <%= booking.start.strftime("%H:%M %d/%m/%y") %> to <%= booking.end.strftime("%H:%M %d/%m/%y") %></p>  
+    <%= booking.start.strftime("%H:%M %d/%m/%y") %> to <%= booking.end.strftime("%H:%M %d/%m/%y") %></p>
   </p>
   <% if booking.user_id != current_user.id %>
     <% if !booking.confirmation %>
@@ -18,6 +20,5 @@
       <%= icon('far fa-thumbs-down', '', class: 'ml-3') %>
     <% end %>
   <% end %>
-  
   </p>
     </div>
