@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :first_name, :last_name, length: { maximum: 20 }
 
   def alias_name
-    if first_name.present?
-      first_name
+    if first_name.present? && last_name.present?
+      "#{first_name} #{last_name}"
     else
       email
     end
