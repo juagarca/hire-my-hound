@@ -1,0 +1,15 @@
+<div class="card dog-booking-card">
+  <p><%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %></p>
+  <p>You want to hire</p>
+  <p><strong><%= booking.dog.name %></strong></p>
+  <p><%= booking.start.strftime("%d/%m/%y") %></p>
+    
+    <p class="mt-3 text-center">Confirmed?
+
+    <% if booking.confirmation %>
+      <%= icon('far fa-thumbs-up', '', class: 'ml-3' ) %>
+    <% else %>
+      <%= icon('far fa-thumbs-down', '', class: 'ml-3') %>
+    <% end %> 
+  </p>
+</div>

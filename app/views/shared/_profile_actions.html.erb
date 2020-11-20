@@ -4,7 +4,7 @@
     <p>None at the moment</p>
   <% end %>
   <% @bookings_my_dogs.each do |booking| %>
-      <%= render 'shared/user_show_booking_cards', booking: booking %>
+      <%= render 'shared/user_show_lend_dog', booking: booking %>
   <% end %>
 </div>
 
@@ -14,6 +14,6 @@
     <p>None at the moment</p>
   <% end %>
   <% @bookings_other_dogs.each do |booking| %>
-    <%= render 'shared/user_show_booking_cards', booking: booking %>
+    <%= render 'shared/user_show_hire_dog', booking: booking %>
   <% end %>
 </div>
