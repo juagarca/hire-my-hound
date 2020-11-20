@@ -3,9 +3,9 @@
   <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
   <p>wants to book</p>
    <strong><%= booking.dog.name %></strong>
-  <p><%= booking.start.strftime("%d/%m/%y") %></p>     
-    
+  <p><%= booking.start.strftime("%d/%m/%y") %></p>
+  <br>
   <% if !booking.confirmation %>
-      <%= link_to "Confirm", user_path(current_user), class: "btn m-3" %>
-  <% end %>     
+      <p class="confirm">Confirm?</p>
+  <% end %>
 </div>
