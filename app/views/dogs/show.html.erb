@@ -20,7 +20,7 @@
           <% end %>
         <% if @dog.user.first_name %>
           <h5>Owner</h5>
-          <%= link_to "#{@dog.user.first_name} #{@dog.user.last_name}", user_path(current_user) %> <br><br>
+          <%= link_to "#{@dog.user.first_name} #{@dog.user.last_name}", user_path(@dog.user) %> <br><br>
         <% end %>
         <h5>Insurance</h5>
         <p><%= @dog.insurance ? "Yes" : "No" %></p>
