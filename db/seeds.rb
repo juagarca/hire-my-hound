@@ -1,37 +1,63 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'date'
+require 'open-uri'
 
 puts "Deleting users and dogs"
 Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
 
+user_names = [["Anne", "De Joly"], ["Andre", "Ferrer"], ["Jakob", "Bethmann"]]
 
-puts "Creating users and saving them"
-users = []
-10.times do
-  e = [*('a'..'z')].sample(4).join+"@email.com"
-  user = User.new(email: e, password: "123456", address: "London")
-  user.save!
-  users << user
+addresses = [["President House, King Square, London, EC1V 8DD"],
+            ["180 Ashley Gardens, Emery Hill Street, London"],
+            ["The Shard, London"]]
+dob = Date.today - 10000
+
+lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+dog_lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
+puts "Beginning user creation"
+
+iterator = 0
+
+(user_names.length).times do
+  email = "#{user_names[iterator][0]}@lewagon.com"
+  new_user = User.new
+  new_user.address = addresses[iterator][0]
+  new_user.email = email
+  new_user.first_name = user_names[iterator][0]
+  new_user.last_name = user_names[iterator][1]
+  new_user.bio = lorem
+  new_user.date_of_birth = dob
+  new_user.password = "password"
+  new_user.save!
+  puts "User generated, associating dogs"
+  3.times do
+    new_dog = Dog.new
+    new_dog.name = Faker::Creature::Dog.name
+    new_dog.age = rand(15)
+    new_dog.breed = Faker::Creature::Dog.breed
+    new_dog.user = new_user
+    new_dog.hourly_rate = rand(5..50)
+    # new_dog.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    new_dog.insurance = true if (rand(1..2) == 2)
+    new_dog.save!
+  end
+  puts "User generated with 3 dogs"
+  iterator += 1
 end
 
-puts "Creating dogs"
-dogs = []
-25.times do
-  dog = Dog.new(name: [*('a'..'z')].sample(5).join, age: 5, breed: "Dachshund")
-  dogs << dog
-end
 
-puts "Adding dogs to owners and saving them"
-dogs.each do |dog|
-  dog.user = users[rand(0..9)]
-  dog.save!
-end
+puts "All dogs and users mades"
 
-puts "Finished"
+# todo: add photo to dogs
+
+# p unsplash_images = Unsplash::Photo.search('architecture', 1, 25)
+
+
+
+
+
+
