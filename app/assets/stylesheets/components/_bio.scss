@@ -34,7 +34,7 @@
 }
 
 .edit {
-  border: 2px solid $blue;
+  border: 1px solid;
   position: absolute;
   bottom: 26px;
   right: 28px;
@@ -48,7 +48,9 @@
   transition: opacity 0.3s ease;
 }
 
-
+.edit:hover {
+  border: 1px solid $blue;
+}
 .card-product .card-product-infos {
   padding: 16px;
 }
