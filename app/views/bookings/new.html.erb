@@ -4,6 +4,7 @@
 <div data-controller="price" data-price-rate="<%= @dog.hourly_rate %>" class="dog-booking-form">
   <%= simple_form_for([@dog, @booking], remote: true) do |f| %>
     <div class="dog-booking-time">
+      <h1>Hire <%= @dog.name %></h1>
       <%= f.input :start, as: :datetime, html5: true, input_html: {"data-action": "change->price#update", "data-target": "price.startDate"}%>
       <%= f.input :end, as: :datetime, html5: true, input_html: {"data-action": "change->price#update", "data-target": "price.endDate"}%>
       <%= f.input :price, as: :hidden, input_html: {"data-target": "price.priceField"}  %>
@@ -17,7 +18,7 @@
         <h3 data-target="price.calculatedPrice"></h3>
       </div>
     </div>
-    <%= f.submit "Hire this hound", class: "btn" %>
+    <%= f.submit "Confirm", class: "btn" %>
   <% end %>
 </div>
 
