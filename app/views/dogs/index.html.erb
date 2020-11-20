@@ -8,7 +8,7 @@
   </div>
   <% if @dogs.count != 0 %>
     <% if params[:query] %>
-      <p>Showing results within 10 miles</p>
+      <p>There are <%= @dogs.count %> dogs within 10 miles</p>
     <% end %>
     <div class="cards-and-map">
       <div class="cards">
@@ -26,6 +26,6 @@
       </div>
     </div>
   <% else %>
-    <p>No results found, search another location</p>
+    <p>No results found within 10 miles, search another location</p>
   <% end %>
 </div>
