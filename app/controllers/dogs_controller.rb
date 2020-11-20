@@ -18,7 +18,7 @@ class DogsController < ApplicationController
       users = User.all
       users = users.reject { |user| user.longitude.nil? || user.latitude.nil? || user.dogs == [] }
     end
-
+    
     @markers = users.map do |u|
       {
         lat: u.latitude,
@@ -26,6 +26,7 @@ class DogsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: u })
       }
     end
+
   end
 
   def new
