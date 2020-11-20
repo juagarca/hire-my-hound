@@ -9,7 +9,7 @@
     </div>
     <h2 class="card-price">£<%= dog.hourly_rate.round %>/ph </h2>
     <% if dog.user.photo.attached? %>
-        <%= cl_image_tag dog.user.photo.key, height: 400, width: 600, crop: :fill, class: "card-user avatar" %>
+        <%= cl_image_tag dog.user.photo.key, height: 400, width: 400, crop: :fill, class: "card-user avatar" %>
     <% end %>
   </div>
 </div>
