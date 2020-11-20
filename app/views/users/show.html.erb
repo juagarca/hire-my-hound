@@ -1,24 +1,43 @@
+<%# <br>
+<br>
+<br>
+<div class="container"> %>
+
+  <%#= render "shared/bio" %>
+  <%# <h2>My Dogs</h2> %>
+  <%# <div class="cards-and-actions"> %>
+    <%# <div class="cards-user-show"> %>
+      <%# @user.dogs.each do |dog| %>
+        <%#= link_to dog_path(dog.id) do %>
+          <%#= render "shared/card_show_profile", dog: dog %>
+        <%# end %>
+      <%# end %>
+
+    <%#= render "shared/add_dog_card" %>
+    <%# </div> %>
+    <%# <div class="profile_actions"> %>
+      <%#= render "shared/profile_actions" %>
+    <%# </div> %>
+  <%# </div> %>
+
+</div>
+
 <br>
 <br>
 <br>
 <div class="container">
 
   <%= render "shared/bio" %>
-  <h2>My Dogs</h2>
-  <div class="cards-and-actions">
-    <div class="cards-user-show">
-
-      <% @user.dogs.each do |dog| %>
+  <div class="user-show-bookings">
+    <h2 class="text-center">My Bookings</h2>
+    <%= render "shared/profile_actions" %>
+  </div>
+  <h2 class="text-center"><%= current_user.first_name%>'s Dogs</h2>
+  <div class="user-show-my-dogs">
+    <% @user.dogs.each do |dog| %>
         <%= link_to dog_path(dog.id) do %>
           <%= render "shared/card_show_profile", dog: dog %>
         <% end %>
       <% end %>
-
-    <%= render "shared/add_dog_card" %>
-    </div>
-    <div class="profile_actions">
-      <%= render "shared/profile_actions" %>
-    </div>
+      <%= render "shared/add_dog_card" %>
   </div>
-
-</div>

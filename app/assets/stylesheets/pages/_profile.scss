@@ -1,6 +1,10 @@
-.profile-cards {
+.user-show-my-dogs {
   margin:20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+}
+
+.dog-bookings {
+  display: flex;
 }
