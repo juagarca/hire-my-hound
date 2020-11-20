@@ -7,7 +7,7 @@
       <h2><%= dog.name %></h2>
       <p><%= dog.breed %></p>
     </div>
-    <h2 class="card-age"><%= dog.age %> tbc</h2>
+    <h2 class="card-price">£<%= dog.hourly_rate.round %>/ph </h2>
     <% if dog.user.photo.attached? %>
         <%= cl_image_tag dog.user.photo.key, height: 400, width: 600, crop: :fill, class: "card-user avatar" %>
     <% end %>

@@ -9,7 +9,7 @@
       <%= f.input :price, as: :hidden, input_html: {"data-target": "price.priceField"}  %>
     </div>
     <div class="dog-booking-info">
-      <%= f.input :location %>
+      <%= f.input :location, input_html: { class: 'search_query' } %>
     </div>
     <div>
       <div class="booking-price-calculator">
