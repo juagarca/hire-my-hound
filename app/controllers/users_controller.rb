@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @bookings_other_dogs = current_user.bookings.where(user_id: current_user.id)
-    @bookings_my_dogs = current_user.dogs.flat_map(&:bookings)    
+    @bookings_my_dogs = current_user.dogs.flat_map(&:bookings)
   end
 
   def edit
