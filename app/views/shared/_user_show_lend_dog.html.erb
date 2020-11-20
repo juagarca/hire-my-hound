@@ -1,9 +1,9 @@
 <div class="card dog-booking-card">
   <p><%= cl_image_tag(booking.dog.photo.key, class: "avatar m-3") %></p>
-  <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+  <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
   <p>wants to book</p>
    <strong><%= booking.dog.name %></strong>
-  <p><%= booking.start.strftime("%d/%m/%y") %></p>
+  <p><%= booking.start.strftime("%H:%M %d/%m/%y") %></p>
   <br>
   <% if !booking.confirmation %>
       <p class="confirm">Confirm?</p>
