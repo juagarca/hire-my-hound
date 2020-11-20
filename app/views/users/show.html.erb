@@ -18,7 +18,9 @@
           <%= render "shared/card_show_profile", dog: dog %>
         <% end %>
       <% end %>
-      <%= render "shared/add_dog_card" %>
+      <% if current_user == @user %>
+        <%= render "shared/add_dog_card" %>
+      <% end %>
   </div>
 
   
