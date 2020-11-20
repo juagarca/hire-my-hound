@@ -26,8 +26,6 @@ class DogsController < ApplicationController
       # if not search then showing all dogs
       @dogs = Dog.all
     end
-
-
   end
 
   def new

@@ -24,7 +24,9 @@
         <% end %>
         <h5>Insurance</h5>
         <p><%= @dog.insurance ? "Yes" : "No" %></p>
-        <%= link_to "Book this dog!", new_dog_bookings_path(@dog) %>
+        <% if current_user.id != @dog.user.id %>
+          <%= link_to "Book this dog!", new_dog_bookings_path(@dog) %>
+        <% end %>
       </div>
     </div>
   </div>
