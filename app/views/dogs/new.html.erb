@@ -1,22 +1,18 @@
 <br>
 <br>
 <br>
-<div class="container" style="height:80vh;">
-  <div class="login" style="width:300px;">
+<div class="container">
+  <div class="login">
     <h2>Your new dog</h2>
     <%= simple_form_for([current_user, @dog]) do |f| %>
-    <div class="form-inputs">
       <%= f.input :name %>
+      <%= f.input :bio %>
       <%= f.input :breed %>
       <%= f.input :age %>
-      <%= f.input :bio, label: 'About Me' %>
-      <%= f.input :insurance %>
       <%= f.input :hourly_rate %>
       <%= f.input :photo, as: :file %>
-    </div>
-    <div class="form-actions">
-      <%= f.submit "Submit dog", class: "btn" %>
-    </div>
+      <%= f.input :insurance %>
+      <%= f.submit "Add dog", class: "btn" %>
   <% end %>
   </div>
 </div>
