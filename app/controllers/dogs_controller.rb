@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -18,7 +18,7 @@ class DogsController < ApplicationController
       users = User.all
       users = users.reject { |user| user.longitude.nil? || user.latitude.nil? || user.dogs == [] }
     end
-    
+
     @markers = users.map do |u|
       {
         lat: u.latitude,
@@ -26,7 +26,6 @@ class DogsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: u })
       }
     end
-
   end
 
   def new
@@ -43,10 +42,23 @@ class DogsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def edit
+  end
+
+  def update
+    @dog.update(dog_params)
+    redirect_to user_path(current_user)
+  end
+
+  def destroy
+    @dog.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :photo, :hourly_rate)
+    params.require(:dog).permit(:name, :breed, :age, :photo, :hourly_rate, :insurance, :bio)
   end
 
   def set_dog
