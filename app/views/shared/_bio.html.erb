@@ -1,6 +1,6 @@
 <div class="card-product">
   <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "large-avatar" %>
+    <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "large-avatar" %>
   <% end %>
   <div class="card-product-infos">
     <div class="username">
