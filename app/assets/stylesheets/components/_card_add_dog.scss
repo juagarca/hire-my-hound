@@ -1,9 +1,9 @@
 .add-dog-card {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: lightgrey;
+    background: white;
     width: 250px;
     height: 270px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -16,24 +16,26 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: darkgrey;
+  background-color: $gray;
   display: flex;
-  align-items: center; 
-  justify-content: center;  
+  align-items: center;
+  justify-content: center;
 }
 
 .add-dog-card-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.5);
+  background-color: $gray;
+  color: white;
 }
 
 .add-dog-card-button-text {
   font-size: 45px;
-  color: white;
+  color: $white;
 }
 
 .add-dog-card-button-text:hover {
   font-size: 45px;
-  color: white;
+  color: $white;
 }
 
 .cards-user-show {
