@@ -3,29 +3,30 @@ class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # If search find users within 10 miles
+    # If params, search users within 10 miles
     if params[:query].present?
       @dogs = []
-      # @dogs = Dog.joins(:user).where(users: { address: params[:query] })
       users = User.near(params[:query], 10)
+      # Finding users with dogs
+      users = users.reject { |user| user.dogs == [] }
       # Adding their dogs to @dogs
       users.each do |user|
         user.dogs.each { |dog| @dogs << dog }
       end
-      # Finding users with dogs
-      users = users.reject { |user| user.dogs == [] }
-
-      @markers = users.map do |u|
-        {
-          lat: u.latitude,
-          lng: u.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { user: u })
-        }
-      end
     else
-      # if not search then showing all dogs
       @dogs = Dog.all
+      users = User.all
+      users = users.reject { |user| user.longitude.nil? || user.latitude.nil? || user.dogs == [] }
     end
+    
+    @markers = users.map do |u|
+      {
+        lat: u.latitude,
+        lng: u.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: u })
+      }
+    end
+
   end
 
   def new
