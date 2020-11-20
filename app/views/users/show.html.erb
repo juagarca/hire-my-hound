@@ -6,15 +6,15 @@
   <%= render "shared/bio" %>
   <div class="user-show-bookings">
     <% if current_user == @user %>
-    <h2 class="text-center">My Bookings</h2>
-    <div class=“profile_actions”>
-      <%= render "shared/profile_actions" %>
-    </div>
-  <% end %>
+      <h2 class="text-center">My Bookings</h2>
+      <div class="profile_actions">
+        <%= render "shared/profile_actions" %>
+      </div>
+    <% end %>
   </div>
   <h2 class="text-center"><%= current_user.first_name%>'s Dogs</h2>
-  <div class="user-show-my-dogs">
-    <% @user.dogs.each do |dog| %>
+  <div class="user-show-my-dogs">    
+      <% @user.dogs.each do |dog| %>
         <%= link_to dog_path(dog.id) do %>
           <%= render "shared/card_show_profile", dog: dog %>
         <% end %>
