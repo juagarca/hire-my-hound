@@ -12,20 +12,27 @@
         <% end %>
       </div>
       <div class="dog-show-text">
-        <h2 class="text-center">More info</h2>
+        <h5>£<%= @dog.hourly_rate.round %> per hour</h2>
         <br>
          <% if @dog.bio %>
-           <h5>About</h5>
+           <h5>Bio</h5>
            <p><%= @dog.bio %></p>
           <% end %>
         <% if @dog.user.first_name %>
           <h5>Owner</h5>
-          <p><%= @dog.user.first_name %> <%= @dog.user.last_name %>  </p>
+          <%= link_to "#{@dog.user.first_name} #{@dog.user.last_name}", user_path(current_user) %> <br><br>
         <% end %>
         <h5>Insurance</h5>
         <p><%= @dog.insurance ? "Yes" : "No" %></p>
         <% if current_user.id != @dog.user.id %>
           <%= link_to "Book this dog!", new_dog_bookings_path(@dog) %>
+        <% else %>
+          <%= link_to "Edit", edit_user_dog_path(current_user, @dog) %>
+          <span> OR </span>
+          <%= link_to "Delete",
+             dog_path(@dog),
+            method: :delete,
+            data: { confirm: "Are you sure?" }%> <span>?</span>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <h1 class="text-center">Update <%= @dog.name %>'s details</h1>
+  <div class="w-50 d-box mx-auto mt-5">
+
+  <%= simple_form_for @dog do |f| %>
+    <%= f.input :name %>
+    <%= f.input :breed %>
+    <%= f.input :age %>
+    <%= f.input :bio, label: 'About Me' %>
+    <%= f.input :insurance %>
+    <%= f.input :hourly_rate %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: "btn" %>
+  <% end %>
+  </div>
+</div>

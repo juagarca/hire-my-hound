@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'blog', to: 'pages#blog'
   resources :users, only: [:show, :index, :edit, :update] do
-    resources :dogs, only: [:new, :create, :edit, :update, :delete]
+    resources :dogs, only: [:new, :create, :edit]
     resources :bookings, only: [:index]
   end
 
-  resources :dogs, only: [:show, :index] do
+  resources :dogs, only: [:show, :index, :update, :destroy] do
     resource :bookings, only: [:show, :new, :create]
   end
 
