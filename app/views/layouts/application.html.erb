@@ -4,6 +4,13 @@
     <title>HireMyHound</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:title" content="Hire my Hound" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= image_url("og.png") %>" />
+    <meta property="og:site_name" content="Hire my Hound" />
+    <meta property="og:description" content="Find a new furry friend in your area" />
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
